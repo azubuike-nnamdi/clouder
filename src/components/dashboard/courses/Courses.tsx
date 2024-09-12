@@ -22,7 +22,7 @@ import ReactPaginate from "react-paginate";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import LoadingSkeleton from "@/components/common/Skeleton";
 import RequestFeedbackModal from "@/components/common/RequestFeedbackModal";
-import { COURSES_ADD_FEEDBACK_URL } from "@/config/route";
+import { COURSES_VIEW_FEEDBACK } from "@/config/route";
 
 interface CustomPageClickEvent extends React.MouseEvent<HTMLButtonElement> {
   selected: number;
@@ -142,22 +142,17 @@ const Courses = () => {
 
                               <Flex gap={"10px"}>
                                 <Text
-                                  bgColor="#03A9F4"
+                                  bgColor="white"
                                   fontSize="0.75rem"
-                                  color="white"
+                                  color="#03A9F4"
                                   fontWeight="normal"
                                   w="fit-content"
-                                  minW="136px"
                                   p="0.8rem 1rem"
-                                  rounded={"1.35938rem"}
-                                  display="flex"
-                                  alignItems="center"
-                                  justifyContent="center"
                                   cursor="pointer"
                                   as="a"
-                                  href={COURSES_ADD_FEEDBACK_URL(item?.id)}
+                                  href={COURSES_VIEW_FEEDBACK(item?.id)}
                                 >
-                                  Add feedback
+                                  View feedback
                                 </Text>
                                 <Text
                                   bgColor="white"
