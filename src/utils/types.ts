@@ -362,7 +362,3 @@ export type FeedbackPayload = {
   email: string;
   selectedId: string;
 };
-
-export type SubmitFeedback = {
-  feedback: string;
-};
