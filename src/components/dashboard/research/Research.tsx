@@ -25,6 +25,10 @@ import useGetResearch from "@/hooks/useGetResearch";
 import LoadingSkeleton from "@/components/common/Skeleton";
 import { ResearchResponseType } from "@/utils/types";
 import RequestFeedbackModal from "@/components/common/RequestFeedbackModal";
+import {
+  RESEARCH_REQUIRED_BY_ID_URL,
+  RESEARCH_VIEW_FEEDBACK,
+} from "@/config/route";
 interface CustomPageClickEvent extends React.MouseEvent<HTMLButtonElement> {
   selected: number;
 }
@@ -144,7 +148,7 @@ const Research = () => {
                             <Text
                               onClick={() =>
                                 router.push(
-                                  `/dashboard/research/research_aquired/${item?.id}`,
+                                  RESEARCH_REQUIRED_BY_ID_URL(item?.id),
                                 )
                               }
                               cursor={"pointer"}
@@ -153,22 +157,17 @@ const Research = () => {
                             </Text>
                             <Flex gap="10px">
                               <Text
-                                bgColor="#03A9F4"
+                                bgColor="white"
                                 fontSize="0.75rem"
-                                color="white"
+                                color="#03A9F4"
                                 fontWeight="normal"
                                 w="fit-content"
-                                minW="136px"
                                 p="0.8rem 1rem"
-                                rounded={"1.35938rem"}
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
                                 cursor="pointer"
                                 as="a"
-                                href={`/dashboard/research/request_feed_back/${item?.id}`}
+                                href={RESEARCH_VIEW_FEEDBACK(item?.id)}
                               >
-                                Add feedback
+                                View feedback
                               </Text>
                               <Text
                                 bgColor="white"
