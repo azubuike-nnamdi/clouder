@@ -1,4 +1,12 @@
-import React, { useState, useEffect } from "react";
+import {
+  COURSES_URL,
+  LOGBOOK_URL,
+  MEDICAL_LOGBOOK_URL,
+  RESEARCH_URL,
+  SURGICAL_LOGBOOK_URL,
+} from "@/config/route";
+import useSubmitFeedback from "@/hooks/useSubmitFeedback";
+import { FeedbackPayload } from "@/utils/types";
 import {
   Box,
   Button,
@@ -15,15 +23,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
-import useSubmitFeedback from "@/hooks/useSubmitFeedback";
-import { FeedbackPayload } from "@/utils/types";
-import {
-  COURSES_URL,
-  LOGBOOK_URL,
-  MEDICAL_LOGBOOK_URL,
-  RESEARCH_URL,
-  SURGICAL_LOGBOOK_URL,
-} from "@/config/route";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   isOpen: boolean;
@@ -66,7 +66,7 @@ export const RequestFeedbackModal = ({
 
   const option = getOptionFromPathname(pathname);
 
-  const { handleSubmitFeedback, isLoading } = useSubmitFeedback(
+  const { handleSubmitFeedback, isLoading, isSuccess } = useSubmitFeedback(
     selectedId,
     option,
   );
@@ -77,7 +77,9 @@ export const RequestFeedbackModal = ({
 
   const handleSubmit = () => {
     handleSubmitFeedback(feedback);
-    onClose();
+    if (isSuccess) {
+      onClose();
+    }
   };
 
   return (

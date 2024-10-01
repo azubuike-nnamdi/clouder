@@ -25,7 +25,10 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["@typescript-eslint", "react"],
-  rules: {},
+  rules: {
+    // Turn off the rule that requires React to be in scope when using JSX
+    "react/react-in-jsx-scope": "off",
+  },
   settings: {
     react: {
       version: "detect",
