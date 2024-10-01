@@ -362,3 +362,8 @@ export type FeedbackPayload = {
   email: string;
   selectedId: string;
 };
+
+export type RequestSupportType = {
+  message: string;
+  file: File | null;
+};
