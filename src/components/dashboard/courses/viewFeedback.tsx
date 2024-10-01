@@ -1,9 +1,9 @@
-import React from "react";
+import LoadingSkeleton from "@/components/common/Skeleton";
+import useFetchFeedback from "@/hooks/useFetchFeedback";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Box, Divider, Heading, Text, VStack } from "@chakra-ui/react";
 import { useParams, useRouter } from "next/navigation";
-import useFetchFeedback from "@/hooks/useFetchFeedback";
-import LoadingSkeleton from "@/components/common/Skeleton";
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import React from "react";
 
 export function ViewUserFeedback() {
   const param = useParams();
@@ -39,7 +39,7 @@ export function ViewUserFeedback() {
           onClick={() => router.back()}
         />
         {!isLoading && feedbackData && (
-          <>
+          <React.Fragment>
             <Heading as="h1" size="lg" mb={4}>
               Feedback Details
             </Heading>
@@ -91,7 +91,7 @@ export function ViewUserFeedback() {
               <Text>{feedbackData.feedbackRequested ? "Yes" : "No"}</Text>
             </Box> */}
             </VStack>
-          </>
+          </React.Fragment>
         )}
       </Box>
     </Box>

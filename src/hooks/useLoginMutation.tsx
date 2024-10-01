@@ -1,11 +1,11 @@
 // src/hooks/useLoginMutation.ts
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import api from "@/utils/axiosInstance";
 import { DASHBOARD_URL, SUPERVISOR_DASHBOARD_URL } from "@/config/route";
-import { toast } from "sonner";
+import api from "@/utils/axiosInstance";
 import { LoginFormValues } from "@/utils/types";
+import { useMutation } from "@tanstack/react-query";
 import { setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const useLoginMutation = () => {
   const router = useRouter();
@@ -37,7 +37,6 @@ const useLoginMutation = () => {
       toast.success("Login Successful");
     },
     onError: (error: { response: { data: { error: string } } }) => {
-      console.log("error:", error);
       const errorMsg = error.response.data.error;
       toast.error(errorMsg);
     },

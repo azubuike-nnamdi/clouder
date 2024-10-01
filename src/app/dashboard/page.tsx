@@ -10,8 +10,6 @@ import useProfile from "@/hooks/useProfile";
 
 import { Box, Flex, Image, SimpleGrid } from "@chakra-ui/react";
 
-import React from "react";
-
 const Dashboard = () => {
   const { data, isLoading } = useProfile();
   if (isLoading) return <PageLoader />;
