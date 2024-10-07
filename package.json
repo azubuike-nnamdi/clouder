@@ -60,7 +60,7 @@
       "@types/react-datepicker": "^4.15.2",
       "@types/react-slick": "^0.23.10",
       "@typescript-eslint/eslint-plugin": "^6.4.1",
-      "@typescript-eslint/parser": "^6.4.1",
+      "@typescript-eslint/parser": "^8.8.0",
       "eslint": "^8.54.0",
       "eslint-plugin-react": "^7.33.2",
       "husky": "^8.0.3",
